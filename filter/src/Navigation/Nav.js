@@ -4,12 +4,16 @@ import {FiHeart} from 'react-icons/fi'
 import '../index.css'
 import './Nav.css'
 
-function nav() {
+function nav({ handleInputChange }) {
+ 
+
   return (
   <nav>
 <input type="text" 
 className="search-input"
-placeholder='Enter The Shoes...'
+placeholder='Enter The Shoes....'
+onChange={handleInputChange}
+
 />
 <div className="Profile-container">
 

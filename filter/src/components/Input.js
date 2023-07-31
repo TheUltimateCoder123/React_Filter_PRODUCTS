@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Input() {
+function Input({handleChange,value,title,name,color}) {
   return (
-    <div>Input</div>
+    <label className="sidebar-label-container">
+    <input onChange={handleChange} type="radio" name={name} value={value} title={title}/>
+    <span className="checkmark" style={{backgroundColor:color}}></span>{title}
+    </label>
   )
 }
 

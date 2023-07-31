@@ -5,39 +5,39 @@ function Category({ handleChange }) {
   return (
     <div>
       <h2 className="sidebar-title">Category</h2>
+        <label className="sidebar-label-container">
+          <input onChange={handleChange} type="radio" name="test" value="" />
+          <span className="checkmark"></span>All
+        </label>
 
-      <div>
-      
-<label className="sidebar-label-container">
+        <Input
+          handleChange={handleChange}
+          value="sneakers"
+          title="Sneakers"
+          name="test"
+        />
 
-<input type="radio" name="test"/>
-<span className="checkmark"></span>All
-</label>
-<label className="sidebar-label-container">
+        <Input
+          handleChange={handleChange}
+          value="flats"
+          title="Flats"
+          name="test"
+        />
 
-<input type="radio" name="test"/>
-<span className="checkmark"></span>Sneakers
-</label>
+        <Input
+          handleChange={handleChange}
+          value="sandals"
+          title="Sandals"
+          name="test"
+        />
 
-<label className="sidebar-label-container">
-
-<input type="radio" name="test"/>
-<span className="checkmark"></span>Flats
-</label>
-
-<label className="sidebar-label-container">
-
-<input type="radio" name="test"/>
-<span className="checkmark"></span>Sandals
-</label>
-<label className="sidebar-label-container">
-
-<input type="radio" name="test"/>
-<span className="checkmark"></span>Heels
-</label>
-
-      
-      </div>
+        <Input
+          handleChange={handleChange}
+          value="heels"
+          title="Heels"
+          name="test"
+        />
+     
     </div>
   );
 }
