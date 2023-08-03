@@ -1,38 +1,44 @@
-import React from 'react'
-import {AiOutlineShoppingCart,AiOutlineUserAdd} from 'react-icons/ai'
-import {FiHeart} from 'react-icons/fi'
-import '../index.css'
-import './Nav.css'
+import React from 'react';
+import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineSearch } from 'react-icons/ai';
+import { FiHeart } from 'react-icons/fi';
+import Recommended from '../Recommended/Recommended';
+import './Nav.css';
 
-function nav({ handleInputChange }) {
- 
-
+function Nav({ handleInputChange, handleClick, countCartItems }) {
   return (
-  <nav>
-<input type="text" 
-className="search-input"
-placeholder='Enter The Shoes....'
-onChange={handleInputChange}
+    <nav>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Enter The Shoes...."
+          onChange={handleInputChange}
+        />
+        <AiOutlineSearch className="search-icon" />
+      </div>
 
-/>
-<div className="Profile-container">
+      <div>
+        <Recommended handleClick={handleClick} />
+      </div>
 
-<a href='#'>
-<FiHeart className='nav-icons'/>
-</a>
-<a href='#'>
-<AiOutlineShoppingCart className='nav-icons'/>
-</a>
-<a href='#'>
-<AiOutlineUserAdd className='nav-icons'/>
-</a>
+      <div className="Profile-container">
+        <a href="#">
+          <FiHeart className="nav-icons" />
+        </a>
+       
+        <a href="#">
+          <AiOutlineShoppingCart className="nav-icons" />
+          {countCartItems ? (
+            <button className='badge'>{countCartItems}</button>
+          ) : null}
+        </a>
 
-
-
-
-</div>
-  </nav>
-  )
+        <a href="#">
+          <AiOutlineUserAdd className="nav-icons" />
+        </a>
+      </div>
+    </nav>
+  );
 }
 
-export default nav
+export default Nav;

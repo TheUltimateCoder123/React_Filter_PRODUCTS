@@ -13,7 +13,7 @@ function Price({ handleChange }) {
 
       <Input
         handleChange={handleChange}
-        value={0}
+        value={50}
         title="$0-50"
         name="test2"
       />
@@ -32,7 +32,7 @@ function Price({ handleChange }) {
       <Input
         handleChange={handleChange}
         value={200}
-        title="$Over $150"
+        title="Over $150"
         name="test2"
       />
     </div>

@@ -7,7 +7,9 @@ const Sidebar = ({handleChange}) => {
     <>
       <section className="sidebar">
         <div className="logo-container">
-          <h1>🛒</h1>
+          <h1>
+          👟<span className="me">ME<span className="dot">.</span></span>
+          </h1>
         </div>
         <Category handleChange={handleChange} />
         <Price handleChange={handleChange}/>
@@ -18,3 +20,5 @@ const Sidebar = ({handleChange}) => {
 };
 
 export default Sidebar;
+
+
