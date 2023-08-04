@@ -2,100 +2,110 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsFillBagHeartFill } from 'react-icons/bs';
 
-function Card({ id,addToCart,img, title, star, reviews, newPrice, prevPrice }) {
+function Card({ id, addToCart, img, title, star, reviews, newPrice, prevPrice }) {
+  const cardStyle = {
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    padding: '10px',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+    width: '300px',
+    margin: '10px',
+  };
+
+  const cardImgStyle = {
+    width: '100%',
+    maxHeight: '200px',
+    objectFit: 'cover',
+    borderRadius: '8px',
+  };
+
+  const cardTitleStyle = {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginBottom: '8px',
+  };
+
+  const cardReviewsStyle = {
+    display: 'flex',
+    alignItems: 'center',
+  };
+
+  const starIconStyle = {
+    color: '#FFD700',
+    marginRight: '2px',
+  };
+
+  const totalReviewsStyle = {
+    marginLeft: '5px',
+  };
+
+  const cardPriceStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '10px',
+  };
+
+  const priceStyle = {
+    fontSize: '20px',
+    color: '#333',
+    marginRight: '10px',
+  };
+
+  const bagStyle = {
+    backgroundColor: '#FF4500',
+    padding: '8px',
+    borderRadius: '50%',
+  };
+
+  const bagIconStyle = {
+    color: '#fff',
+  };
+
+  const addToCartButtonStyle = {
+    marginTop: '10px',
+    padding: '10px',
+    backgroundColor: '#007BFF',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s ease-in-out',
+  };
+
+  const cardDetailsStyle = {
+    padding: '10px',
+  };
+
   return (
-    <section className="card" style={styles.card}>
-      <div className="card-content" style={styles.cardContent}>
-        <img src={img} alt="shoes" className="card-img" style={styles.cardImg} />
-        <div className="card-details" style={styles.cardDetails}>
-          <h3 className="card-title" style={styles.cardTitle}>
-            {title}
-          </h3>
-          <section className="card-reviews" style={styles.cardReviews}>
-            {star}{star}{star}{star}
-            <span className="total-reviews" style={styles.totalReviews}>
-              {reviews} Reviews
-            </span>
+    <section style={cardStyle}>
+      <div className="card-content">
+        <img src={img} alt="shoes" style={cardImgStyle} />
+        <div style={cardDetailsStyle}>
+          <h3 style={cardTitleStyle}>{title}</h3>
+          <section style={cardReviewsStyle}>
+            {[...Array(star)].map((_, index) => (
+              <AiFillStar key={index} style={starIconStyle} />
+            ))}
+            <span style={totalReviewsStyle}>{reviews} Reviews</span>
           </section>
-          <section className="card-price" style={styles.cardPrice}>
-            <div className="price" style={styles.price}>
+          <section style={cardPriceStyle}>
+            <div style={priceStyle}>
               <del>{prevPrice}</del> ${newPrice}
             </div>
-            <div className="bag">
-              <BsFillBagHeartFill className="bag-icon" style={styles.bagIcon} />
+            <div style={bagStyle}>
+              <BsFillBagHeartFill style={bagIconStyle} />
             </div>
           </section>
-    
-          <button  className="add-to-cart-button" style={styles.addToCartButton}onClick={() => addToCart({ id, title })}>Add to Cart</button>
+          <button
+            style={addToCartButtonStyle}
+            onClick={() => addToCart({ id, title, img, newPrice })}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </section>
   );
 }
-
-const styles = {
-  card: {
-    perspective: '800px',
-    maxWidth: '300px',
-    margin: '16px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  },
-  cardContent: {
-    transformStyle: 'preserve-3d',
-    transition: 'transform 0.3s ease',
-    borderRadius: '8px',
-    backgroundColor: '#fff',
-    overflow: 'hidden',
-  },
-  cardImg: {
-    width: '100%',
-    marginBottom: '16px',
-    borderRadius: '4px',
-  },
-  cardDetails: {
-    textAlign: 'left',
-    padding: '16px',
-  },
-  cardTitle: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    marginBottom: '8px',
-  },
-  cardReviews: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '8px',
-  },
-  totalReviews: {
-    marginLeft: '4px',
-  },
-  cardPrice: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '8px',
-  },
-  price: {
-    marginRight: '8px',
-    fontWeight: 'bold',
-  },
-  bagIcon: {
-    fontSize: '24px',
-    color: '#ff5252',
-  },
-  addToCartButton: {
-    backgroundColor: '#2196f3',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    padding: '8px 16px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: 'bold',
-  },
-  cardHovered: {
-    transform: 'rotateY(5deg) scale(1.02)',
-    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)',
-  },
-};
 
 export default Card;

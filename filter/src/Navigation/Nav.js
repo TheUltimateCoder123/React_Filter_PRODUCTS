@@ -1,8 +1,13 @@
-import React from 'react';
-import { AiOutlineShoppingCart, AiOutlineUserAdd, AiOutlineSearch } from 'react-icons/ai';
-import { FiHeart } from 'react-icons/fi';
-import Recommended from '../Recommended/Recommended';
-import './Nav.css';
+import React from "react";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineUserAdd,
+  AiOutlineSearch,
+} from "react-icons/ai";
+import { FiHeart } from "react-icons/fi";
+import Recommended from "../Recommended/Recommended";
+import "./Nav.css";
+import { Link, Route, Routes } from "react-router-dom";
 
 function Nav({ handleInputChange, handleClick, countCartItems }) {
   return (
@@ -25,13 +30,13 @@ function Nav({ handleInputChange, handleClick, countCartItems }) {
         <a href="#">
           <FiHeart className="nav-icons" />
         </a>
-       
-        <a href="#">
+
+        <Link to="/cart">
           <AiOutlineShoppingCart className="nav-icons" />
           {countCartItems ? (
-            <button className='badge'>{countCartItems}</button>
+            <button className="badge">{countCartItems}</button>
           ) : null}
-        </a>
+        </Link>
 
         <a href="#">
           <AiOutlineUserAdd className="nav-icons" />
