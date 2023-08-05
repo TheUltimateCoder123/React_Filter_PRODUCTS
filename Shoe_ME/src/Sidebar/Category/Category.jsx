@@ -3,7 +3,7 @@ import Input from "../../components/Input";
 
 function Category({ handleChange }) {
   return (
-    <div>
+    <div className="category">
       <h2 className="sidebar-title">Category</h2>
         <label className="sidebar-label-container">
           <input onChange={handleChange} type="radio" name="test" value="" />

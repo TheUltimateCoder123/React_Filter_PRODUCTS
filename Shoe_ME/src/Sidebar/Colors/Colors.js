@@ -3,7 +3,7 @@ import Input from "../../components/Input";
 import "./Colors.css";
 function Colors({ handleChange }) {
   return (
-    <div>
+    <div className="colors_bar">
       <h2 className="sidebar-title color-title">Colors</h2>
       <label className="sidebar-label-container">
         <input onChange={handleChange} type="radio" name="test3" value="" />
@@ -46,13 +46,6 @@ function Colors({ handleChange }) {
         color="green"
       />
 
-      {/* <Input
-        handleChange={handleChange}
-        value=""
-        title="White"
-        name="test3"
-        color="white"
-      /> */}
     </div>
   );
 }
